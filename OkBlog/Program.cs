@@ -20,7 +20,7 @@ namespace OkBlog
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
-                //var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
+                var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
                 var logger = NLog.Web.NLogBuilder.ConfigureNLog("NLog.config").GetCurrentClassLogger();
 
                 try

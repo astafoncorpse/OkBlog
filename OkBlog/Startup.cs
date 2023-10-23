@@ -68,7 +68,7 @@ namespace OkBlog
                         logger.LogError(feature.Error, "Exception Here!");
                         context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                         context.Response.ContentType = "application/json";
-                        //context.Request.Path = "/Home/500.cshtml";
+                        context.Request.Path = "/Home/500.cshtml";
 
                         await context.Response.WriteAsync(System.Text.Json.JsonSerializer.Serialize(new
                         {
@@ -87,15 +87,15 @@ namespace OkBlog
             else
             {
                 app.UseStatusCodePagesWithReExecute("/Home/Error", "?statusCode={0}");
-                //app.UseExceptionHandler("/Error");
+                app.UseExceptionHandler("/Error");
             }
 
-            //app.Run(async (context) =>
-            //{
-            //    int zero = 0;
-            //    int result = 4 / zero;
-            //    await context.Response.WriteAsync($"Page not found");
-            //});
+            app.Run(async (context) =>
+            {
+                int zero = 0;
+                int result = 4 / zero;
+                await context.Response.WriteAsync($"Page not found");
+            });
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

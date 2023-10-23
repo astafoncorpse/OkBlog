@@ -14,7 +14,7 @@ namespace BlogApi.Contracts.Validators
         {
             RuleFor(x => x.Name)
                 .NotEmpty();
-                //.Matches("^[a-zA-Z0-9 ]*$");
+               
         }
     }
 }
