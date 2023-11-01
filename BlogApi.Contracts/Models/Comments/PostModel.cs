@@ -16,7 +16,7 @@ namespace BlogApi.Contracts.Models.Comments
         public DateTime Created { get; set; } = DateTime.Now;
 
         public string CurrentUserName { get; set; }
-        //public List<TagViewModel> Tags { get; set; }
+      
         public List<MainComment> MainComments { get; set; } = new List<MainComment>();
     }
 }

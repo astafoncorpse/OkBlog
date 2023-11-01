@@ -9,7 +9,7 @@ namespace BlogApi.Contracts.Models.Tags
 {
     public class EditTagModel
     {
-        //[Required]
+        [Required]
         public string Name { get; set; }
     }
 }

@@ -32,15 +32,13 @@ namespace BlogApi.Data.Repository
         public Post GetPostById(int id)
         {
             return _context.Posts
-                //.Include(t => t.Tags)
-                //.Include(mc => mc.MainComments)
-                //.ThenInclude(sc => sc.SubComments)
+               
                 .FirstOrDefault(p => p.Id == id);
         }
 
         public async Task AddPost(Post post)
         {
-            //await _context.Posts.AddAsync(post);
+            await _context.Posts.AddAsync(post);
             var entry = _context.Entry(post);
             if (entry.State == EntityState.Detached)
                 await _context.Posts.AddAsync(post);

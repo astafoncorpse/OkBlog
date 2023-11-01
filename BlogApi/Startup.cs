@@ -88,11 +88,11 @@ namespace BlogApi
                     };
                 });
 
-            //services.AddAuthorization(options =>
-            //{
-            //    options.AddPolicy("AtLeast18", policy =>
-            //        policy.Requirements.Add(new MinimumAgeRequirement(18)));
-            //});
+            services.AddAuthorization(options =>
+            {
+              options.AddPolicy("AtLeast18", policy =>
+                    policy.Requirements.Add(new MinimumAgeRequirement(18)));
+            });
 
             services.AddSwaggerGen(c =>
             {
